@@ -1,7 +1,7 @@
 {
   "name": "Aircraft Search",
   "description": "Extension to add context menus for searching out aircraft information",
-  "version": "0.1",
+  "version": "0.2",
   "manifest_version": 3,
   "minimum_chrome_version": "129",
   "permissions": ["contextMenus", "tabs", "search"],

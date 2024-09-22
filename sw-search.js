@@ -4,10 +4,10 @@ function contextClick(info, tab) {
     const { menuItemId } = info
 
     if (menuItemId === 'contextMenuItem1') {
-        searchWord(info,tab);
+        searchWithGoogle(info,tab);
     }
     if (menuItemId === 'contextMenuItem2') {
-        searchByTailNumber(info,tab);
+        searchFAARegistry(info,tab);
     }
     if (menuItemId === 'contextMenuItem3') {
         showHistoryByHex(info,tab);
@@ -16,13 +16,13 @@ function contextClick(info, tab) {
 
 chrome.contextMenus.removeAll()
 
-function searchWord(info,tab) {
+function searchWithGoogle(info,tab) {
     console.log("Word " + info.selectionText + " was clicked and searched with Google.");
     chrome.tabs.create({  
       url: "http://www.google.com/search?q=" + info.selectionText
     });
 }
-function searchByTailNumber(info, tab) {
+function searchFAARegistry(info, tab) {
     console.log("Word " + info.selectionText + " was clicked and searched against the FAA registry.");
     chrome.tabs.create({  
         url: "https://registry.faa.gov/AircraftInquiry/Search/NNumberResult?nNumberTxt=" + info.selectionText
@@ -37,17 +37,17 @@ function showHistoryByHex(info, tab) {
 
 let contextMenuItem1 = {
     "id": "contextMenuItem1",
-    "title": "Search: %s",
+    "title": "Search with Google: %s",
     "contexts": ["selection", "editable"]
 };
 let contextMenuItem2 = {
     "id": "contextMenuItem2",
-    "title": "Search for selected tail number",
+    "title": "Search the FAA registry for selected tail number",
     "contexts": ["selection", "editable"]
 };
 let contextMenuItem3 = {
     "id": "contextMenuItem3",
-    "title": "Show flight history for ICAO hex",
+    "title": "Show flight history for hex on adsbexchange",
     "contexts": ["selection", "editable"]
 };
 
