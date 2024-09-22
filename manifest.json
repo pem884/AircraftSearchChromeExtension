@@ -5,21 +5,8 @@
   "manifest_version": 3,
   "minimum_chrome_version": "129",
   "permissions": ["contextMenus", "tabs", "search"],
-  "host_permissions": ["https://extension-tips.glitch.me/*"],
-  "action": {
-    "default_popup": "popup.html"
-  },
   "background": {
    "service_worker": "service-worker.js",
    "type": "module"
- },
- "content_scripts": [
-   {
-     "matches": ["https://developer.chrome.com/docs/extensions/reference/*"],
-     "js": ["content.js"]
-   }
- ],
- "omnibox": {
-   "keyword": "api"
  }
 }
